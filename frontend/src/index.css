@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
 }
 
 code {
@@ -12,6 +14,10 @@ code {
     monospace;
 }
 
-body {
-  background-color: #f0f4f8;
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  min-height: 100vh;
 }

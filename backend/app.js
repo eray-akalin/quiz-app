@@ -60,17 +60,19 @@ app.use('/api/users', userRoutes);
 app.use('/api/quiz', quizRoutes);
 app.use('/api/scores', scoreRoutes);
 
-// 404 handler
-app.use(function (req, res, next) {
-  next(createError(404));
+// 404
+app.use((req, res, next) => {
+  next(createError(404, 'Not Found'));
 });
 
-// Hata handler
-app.use(function (err, req, res, next) {
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-  res.status(err.status || 500);
-  res.render('error');
+// Error handler — VIEW ENGINE YOKSA render kullanma
+app.use((err, req, res, next) => {
+  console.error('🔥 Error:', err);
+  const status = err.status || 500;
+  res.status(status).json({
+    error: err.message || 'Internal Server Error'
+  });
 });
+
 
 module.exports = app;

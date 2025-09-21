@@ -104,22 +104,53 @@ const Quiz = () => {
     if (!started) {
         return (
             <Container maxWidth="sm" sx={{
-                mt: 15, mt: 5,
+                mt: 5,
                 px: 2,
                 py: 4,
-                bgcolor: '#e3f2fd',
-                borderRadius: 3,
-                boxShadow: 1
             }}>
-                <Card>
-                    <CardContent>
-                        <Typography variant="h5" gutterBottom>
-                            Ready to start your quiz?
+                <Card sx={{
+                    background: 'linear-gradient(145deg, #ffffff, #f8f9ff)',
+                    borderRadius: 4,
+                    boxShadow: '0 20px 40px rgba(102, 126, 234, 0.3), 0 8px 16px rgba(0,0,0,0.1)',
+                    border: '1px solid rgba(255,255,255,0.2)',
+                    overflow: 'hidden'
+                }}>
+                    <CardContent sx={{ p: 4, textAlign: 'center' }}>
+                        <Typography variant="h4" gutterBottom sx={{
+                            background: 'linear-gradient(45deg, #667eea, #764ba2)',
+                            backgroundClip: 'text',
+                            WebkitBackgroundClip: 'text',
+                            WebkitTextFillColor: 'transparent',
+                            fontWeight: 'bold',
+                            mb: 3
+                        }}>
+                            Ready to Challenge Yourself?
+                        </Typography>
+                        <Typography variant="body1" sx={{
+                            color: '#64748b',
+                            mb: 4,
+                            fontSize: '1.1rem'
+                        }}>
+                            Test your knowledge with 10 exciting questions!
                         </Typography>
                         <Button
                             variant="contained"
                             fullWidth
                             onClick={() => setStarted(true)}
+                            sx={{
+                                background: 'linear-gradient(45deg, #667eea, #764ba2)',
+                                py: 2,
+                                fontSize: '1.2rem',
+                                fontWeight: 'bold',
+                                borderRadius: 3,
+                                boxShadow: '0 8px 20px rgba(102, 126, 234, 0.4)',
+                                '&:hover': {
+                                    background: 'linear-gradient(45deg, #5a6fd8, #6a4190)',
+                                    boxShadow: '0 12px 24px rgba(102, 126, 234, 0.5)',
+                                    transform: 'translateY(-2px)'
+                                },
+                                transition: 'all 0.3s ease'
+                            }}
                         >
                             Start Quiz
                         </Button>
@@ -138,21 +169,62 @@ const Quiz = () => {
                     flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    height: '80vh', // veya '100vh' tam ortalamak için 
+                    height: '80vh',
                     mt: 5,
                     px: 2,
                     py: 4,
-                    bgcolor: '#e3f2fd',
-                    borderRadius: 3,
-                    boxShadow: 1
                 }}
             >
-                <Typography variant="h4" gutterBottom>
-                    Quiz Completed
-                </Typography>
-                <Button variant="contained" onClick={handleFinish}>
-                    See Results
-                </Button>
+                <Card sx={{
+                    background: 'linear-gradient(145deg, #ffffff, #f8f9ff)',
+                    borderRadius: 4,
+                    boxShadow: '0 20px 40px rgba(102, 126, 234, 0.3), 0 8px 16px rgba(0,0,0,0.1)',
+                    border: '1px solid rgba(255,255,255,0.2)',
+                    overflow: 'hidden',
+                    textAlign: 'center',
+                    p: 4
+                }}>
+                    <CardContent>
+                        <Typography variant="h4" gutterBottom sx={{
+                            background: 'linear-gradient(45deg, #667eea, #764ba2)',
+                            backgroundClip: 'text',
+                            WebkitBackgroundClip: 'text',
+                            WebkitTextFillColor: 'transparent',
+                            fontWeight: 'bold',
+                            mb: 3
+                        }}>
+                            Quiz Completed! 🎉
+                        </Typography>
+                        <Typography variant="body1" sx={{
+                            color: '#64748b',
+                            mb: 4,
+                            fontSize: '1.1rem'
+                        }}>
+                            Great job! Let's see how you performed.
+                        </Typography>
+                        <Button
+                            variant="contained"
+                            onClick={handleFinish}
+                            sx={{
+                                background: 'linear-gradient(45deg, #667eea, #764ba2)',
+                                py: 2,
+                                px: 4,
+                                fontSize: '1.2rem',
+                                fontWeight: 'bold',
+                                borderRadius: 3,
+                                boxShadow: '0 8px 20px rgba(102, 126, 234, 0.4)',
+                                '&:hover': {
+                                    background: 'linear-gradient(45deg, #5a6fd8, #6a4190)',
+                                    boxShadow: '0 12px 24px rgba(102, 126, 234, 0.5)',
+                                    transform: 'translateY(-2px)'
+                                },
+                                transition: 'all 0.3s ease'
+                            }}
+                        >
+                            See Results
+                        </Button>
+                    </CardContent>
+                </Card>
             </Container>
         );
     }
@@ -165,50 +237,140 @@ const Quiz = () => {
             mt: 5,
             px: 2,
             py: 4,
-            bgcolor: '#e3f2fd',
-            borderRadius: 3,
-            boxShadow: 1
         }}>
-            <Card sx={{ mt: 2 }}>
-                <CardContent>
-                    <Typography variant="h6" gutterBottom>
+            <Card sx={{
+                background: 'linear-gradient(145deg, #ffffff, #f8f9ff)',
+                borderRadius: 4,
+                boxShadow: '0 20px 40px rgba(102, 126, 234, 0.3), 0 8px 16px rgba(0,0,0,0.1)',
+                border: '1px solid rgba(255,255,255,0.2)',
+                overflow: 'hidden'
+            }}>
+                <CardContent sx={{ p: 4 }}>
+                    <Typography variant="h5" gutterBottom sx={{
+                        background: 'linear-gradient(45deg, #667eea, #764ba2)',
+                        backgroundClip: 'text',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        fontWeight: 'bold',
+                        mb: 1
+                    }}>
                         Question {current + 1}/{questions.length}
                     </Typography>
-                    <Typography variant="subtitle1" gutterBottom>
-                        {q.question}
-                    </Typography>
-                    <RadioGroup value={selected} onChange={(e) => setSelected(e.target.value)}>
+
+                    <Card sx={{
+                        mb: 3,
+                        background: 'linear-gradient(135deg, #f1f5f9, #e2e8f0)',
+                        borderRadius: 3,
+                        boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+                        border: '1px solid rgba(255,255,255,0.5)'
+                    }}>
+                        <CardContent sx={{ p: 3 }}>
+                            <Typography variant="h6" sx={{
+                                color: '#334155',
+                                fontWeight: 'medium',
+                                lineHeight: 1.4
+                            }}>
+                                {q.question}
+                            </Typography>
+                        </CardContent>
+                    </Card>
+
+                    <RadioGroup value={selected} onChange={(e) => setSelected(e.target.value)} sx={{ mb: 3 }}>
                         {q.options.map((opt, i) => (
-                            <FormControlLabel key={i} value={opt} control={<Radio />} label={opt} />
+                            <Card key={i} sx={{
+                                mb: 1.5,
+                                background: selected === opt
+                                    ? 'linear-gradient(45deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1))'
+                                    : 'rgba(255,255,255,0.8)',
+                                borderRadius: 2,
+                                boxShadow: selected === opt
+                                    ? '0 4px 12px rgba(102, 126, 234, 0.2)'
+                                    : '0 2px 8px rgba(0,0,0,0.05)',
+                                border: selected === opt
+                                    ? '2px solid #667eea'
+                                    : '1px solid rgba(255,255,255,0.3)',
+                                transition: 'all 0.3s ease',
+                                '&:hover': {
+                                    boxShadow: '0 6px 16px rgba(102, 126, 234, 0.15)',
+                                    transform: 'translateY(-1px)'
+                                }
+                            }}>
+                                <FormControlLabel
+                                    value={opt}
+                                    control={<Radio sx={{
+                                        color: '#667eea',
+                                        '&.Mui-checked': {
+                                            color: '#667eea'
+                                        }
+                                    }} />}
+                                    label={opt}
+                                    sx={{
+                                        margin: 0,
+                                        padding: 2,
+                                        width: '100%',
+                                        '& .MuiFormControlLabel-label': {
+                                            fontSize: '1rem',
+                                            color: '#334155',
+                                            fontWeight: selected === opt ? 'medium' : 'normal'
+                                        }
+                                    }}
+                                />
+                            </Card>
                         ))}
                     </RadioGroup>
-
-                    {/* 
-                        {feedback && (
-                        <Alert severity={feedback.correct ? 'success' : 'error'} sx={{ mt: 2 }}>
-                            {feedback.correct ? 'Correct!' : 'Wrong!'} Score: {feedback.score.toFixed(2)}
-                        </Alert>
-                                    )} 
-                        */}
 
                     {!feedback ? (
                         <Button
                             disabled={!selected}
                             variant="contained"
                             fullWidth
-                            sx={{ mt: 2 }}
                             onClick={handleAnswer}
+                            sx={{
+                                background: selected
+                                    ? 'linear-gradient(45deg, #667eea, #764ba2)'
+                                    : 'linear-gradient(45deg, #94a3b8, #cbd5e1)',
+                                py: 2,
+                                fontSize: '1.1rem',
+                                fontWeight: 'bold',
+                                borderRadius: 3,
+                                boxShadow: selected
+                                    ? '0 8px 20px rgba(102, 126, 234, 0.4)'
+                                    : '0 4px 12px rgba(0,0,0,0.1)',
+                                '&:hover': {
+                                    background: selected
+                                        ? 'linear-gradient(45deg, #5a6fd8, #6a4190)'
+                                        : 'linear-gradient(45deg, #94a3b8, #cbd5e1)',
+                                    boxShadow: selected
+                                        ? '0 12px 24px rgba(102, 126, 234, 0.5)'
+                                        : '0 4px 12px rgba(0,0,0,0.1)',
+                                    transform: selected ? 'translateY(-2px)' : 'none'
+                                },
+                                transition: 'all 0.3s ease'
+                            }}
                         >
                             Submit Answer
                         </Button>
                     ) : (
                         <Button
-                            variant="outlined"
+                            variant="contained"
                             fullWidth
-                            sx={{ mt: 2 }}
                             onClick={handleNext}
+                            sx={{
+                                background: 'linear-gradient(45deg, #10b981, #059669)',
+                                py: 2,
+                                fontSize: '1.1rem',
+                                fontWeight: 'bold',
+                                borderRadius: 3,
+                                boxShadow: '0 8px 20px rgba(16, 185, 129, 0.4)',
+                                '&:hover': {
+                                    background: 'linear-gradient(45deg, #059669, #047857)',
+                                    boxShadow: '0 12px 24px rgba(16, 185, 129, 0.5)',
+                                    transform: 'translateY(-2px)'
+                                },
+                                transition: 'all 0.3s ease'
+                            }}
                         >
-                            Next
+                            Next Question →
                         </Button>
                     )}
                 </CardContent>
