@@ -37,7 +37,7 @@ app.use(cors({
 
 // SESSION middleware – PASSPORT'TAN ÖNCE
 app.use(session({
-  secret: 'quiz_secret',
+  secret: process.env.SESSION_SECRET || 'fallback_secret_for_dev',
   resave: false,
   saveUninitialized: false,
   store: MongoStore.create({
