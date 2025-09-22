@@ -48,8 +48,23 @@ The final quiz score is the sum of all question scores.
 - MongoDB
 - Mongoose
 
+---
+
 ## Security Notes
 
 - Score and grade are calculated only on the backend
 - Correct answers are never sent to the frontend
 - Timing is measured on the server side to prevent cheating
+
+---
+
+## Screenshots
+
+### Login
+![Login](frontend/screenshots/login.png)
+
+### Dashboard
+![Dashboard](frontend/screenshots/dashboard.png)
+
+### Quiz
+![Quiz](frontend/screenshots/quiz.png)
